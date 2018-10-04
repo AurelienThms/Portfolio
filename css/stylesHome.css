@@ -1,0 +1,332 @@
+@font-face {
+    font-family: futura;
+    src: url(futuraBoldItalic.ttf);
+}
+
+@font-face {
+    font-family: "SangBleu Empire Trial";
+    src: url(SangBleuEmpireTrial-Medium.otf);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 200vh;
+}
+
+body {
+    width: 100vw;
+    height: 200vh;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 0;
+    position: absolute;
+    top: 5vh;
+    font-size: 6vw;
+    width: 100%;
+    font-family: "futura", sans-serif;
+    text-align: center;
+}
+
+div.accent {
+    opacity: 0.85;
+    height: 35vw;
+    width: 35vw;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    position: fixed;
+    left: 32.5vw;
+    top: 15vh;
+    color: white;
+    font-family: "futura";
+}
+
+.accent:hover {
+    opacity: 1;
+}
+
+h2 {
+    font-family: "SangBleu Empire Trial";
+    font-size: 5.5vw;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 60vh;
+}
+
+.accent > a {
+    text-decoration: none;
+}
+
+.accent > a > p {
+    font-size: 3em;
+    color: white;
+    width: 100%;
+    line-height: 35vw;
+    text-align: center;
+    margin: 0;
+
+}
+
+main {
+    position: absolute;
+    top: 100vh;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    background-color: #050505;
+}
+
+nav {
+    width: 100vw;
+    height: 100vh;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav > div {
+    transition: ease-out 0.5s;
+    color: white;
+    border: solid 5px white;
+    box-sizing: border-box;
+    height: 34vh;
+    width: 34vw;
+    display: flex;
+    background-color: black;
+}
+
+nav > div > h3 {
+    margin: 0;
+    vertical-align: top;
+    font-family: "futura", sans-serif;
+    font-size: 1.75em;
+    padding: 20px;
+    position: absolute;
+}
+
+#webd > h3 {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+}
+
+#illu {
+    display: flex;
+}
+
+#illu > h3 {
+    left: 2%;
+    bottom: 2%;
+}
+
+#video > h3 {
+    left: 2%;
+    top: 2%;
+}
+
+#photo, #video {
+    align-self: flex-end;
+}
+
+#illu, #video {
+    text-align: right;
+    justify-content: flex-end;
+
+}
+
+#photo h3 {
+    align-self: flex-start;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}
+
+nav > div {
+    position: relative;
+    z-index: 2;
+}
+
+nav p {
+    color: white;
+    font-family: "SangBleu Empire Trial";
+    padding: 20px;
+    border: solid 5px white;
+    display: none;
+    overflow: hidden;
+}
+
+nav img {
+    display: none;
+}
+
+.out {
+    transition: ease-out 0.5s;
+    width: 66vw;
+    height: 66vh;
+    margin: 0;
+}
+
+nav > div > div > img {
+    border: solid 7px white;
+}
+
+nav > div.out > div > img {
+    display: block;
+}
+
+nav > div.out > div > canvas {
+    display: initial;
+
+}
+
+.out #webdCont, .out #illuCont, .out #photoCont, .out #vidCont {
+    border: solid 5px white;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.out p {
+    display: block;
+    width: 13vw;
+    height: 85%;
+    margin-left: 2%;
+    align-self: center;
+    font-size: 1vw;
+}
+
+nav .examples {
+    display: none;
+}
+
+.out > .examples {
+    display: block;
+    font-family: "futura", sans-serif;
+    font-size: 2em;
+    border: solid 5px white;
+    margin-left: 2%;
+    align-self: center;
+    padding: 20px;
+    width: 15%;
+    height: 85%;
+}
+
+.examples > h4 {
+    margin-top: 0;
+    margin-bottom: 15%;
+    font-size: 0.75em;
+}
+
+nav > div.out > img {
+    display: block;
+    width: 40%;
+    align-self: center;
+    border: solid 5px white;
+    margin-left: 2%;
+}
+
+#illu p, #video p {
+    margin-right: 2%;
+}
+
+#defaultCanvas0 {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+@media only screen and (max-width: 600px) {
+
+    div.accent {
+        width: 70vw;
+        height: 70vw;
+        left: 15vw;
+    }
+
+    h1 {
+        font-size: 2.5em;
+        top: 10vh;
+        width: 100vw;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 2.5em;
+    }
+
+    #defaultCanvas0 {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #menu > div {
+        width: 100vw;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-around;
+        height: 80vh;
+        border: none;
+        border-bottom: solid 5px white;
+    }
+
+    #menu > #illu {
+        flex-direction: column;
+    }
+
+    #menu > #illu h3 {
+        align-self: flex-start;
+    }
+
+    #menu > #video {
+        flex-direction: column;
+    }
+
+    #menu > #video h3 {
+        align-self: flex-start;
+    }
+
+    #menu p {
+        width: 85vw;
+        height: 42vh;
+        font-size: 1em;
+        box-sizing: border-box;
+        text-align: left;
+    }
+
+    #menu img {
+        width: 80vw;
+    }
+
+    div.out > div.examples {
+        display: none;
+    }
+
+    #menu > div.out > h3 {
+        position: initial;
+    }
+
+    .accent > a > p {
+        line-height: 70vw;
+    }
+
+    h1 {
+        position: initial;
+        margin-top: 5vh;
+    }
+
+    h2 {
+        top: 36vh;
+    }
+
+    div.accent {
+        top: 8vh;
+    }
+    #defaultCanvas0{
+        margin-top: 50vh;
+    }
+}
