@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Aurelienthms / Webdesign</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="webd">
+<section class="active">
+    <div class="titleContainer">
+        <h2>Wrong Way</h2>
+    </div>
+    <div class="mobile">
+        <img src="images/wrongwayVert1.jpg" alt="">
+        <img src="images/wrongwayVert2.jpg" alt="">
+    </div>
+    <img src="images/wrongwayHome.jpg" alt="">
+    <p>Site web realisé dans le cadre du WebJam 2018 du cegep de Matane. J'etais en équipe avec 2 camarades et je me
+        suis principalement occupé de la partie vidéo, photo, du design du site web ainsi que de la programmation front-end.
+    </p>
+    <div class="more">
+        <p>Voir plus</p>
+        <img src="images/wrongway5.jpg" class="active" alt="">
+        <img src="images/wrongway1.jpg" class="" alt="">
+        <img src="images/wrongway2.jpg" class="" alt="">
+        <img src="images/wrongway3.jpg" class="" alt="">
+        <img src="images/wrongway4.jpg" class="" alt="">
+        <img src="images/wrongwayHome.jpg" class="" alt="">
+        <div id="left" onclick="plus(-1)"></div>
+        <div id="right" onclick="plus(+1)"></div>
+    </div>
+</section>
+<section>
+    <div class="titleContainer">
+        <h2>Titre</h2>
+    </div>
+    <div class="mobile">
+        <img src="vert1.png" alt="">
+        <img src="vert2.png" alt="">
+    </div>
+    <img src="webd.png" alt="">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut autem culpa cumque dolores fugit nihil nobis
+        nostrum officia placeat quam. Aliquam aspernatur ducimus in laboriosam porro quod soluta vero vitae.</p>
+    <div class="more">
+        <p>Voir plus</p>
+        <img src="webd.png" class="active" alt="">
+        <img src="webd.png" alt="">
+        <img src="webd.png" alt="">
+        <div id="left" onclick="plus(-1)"></div>
+        <div id="right" onclick="plus(+1)"></div>
+    </div>
+</section>
+
+</body>
+<script>
+
+    (function () {
+        var b = document.querySelectorAll('body > section > div.more');
+        for (var i = 0; i < b.length; i++) {
+            var bs = b[i];
+            bs.addEventListener('click', function (event) {
+                if (event.target.id == 'left') {
+                    plus(-1);
+                    return;
+                }
+                if (event.target.id == 'right') {
+                    plus(+1);
+                    return;
+                }
+                ps = this.children[0];
+                if (ps.innerHTML === 'Voir plus') {
+                    var others = document.querySelectorAll('.more');
+                    for (var f = 0; f < others.length; f++) {
+                        others[f].classList.remove('out');
+                    }
+                    this.classList.add('out');
+                    ps.innerHTML = 'moins';
+                } else {
+                    if (ps.innerHTML === 'moins') {
+                        ps.parentNode.classList.remove('out');
+                        ps.innerHTML = 'Voir plus';
+                    }
+                }
+
+            })
+        }
+    }());
+
+    var index = 1;
+    slide(index);
+
+    function plus(n) {
+        slide(index += n);
+    }
+
+    function slide(n) {
+        var i;
+        var x = document.querySelectorAll(".out>img");
+        if (n > x.length) {
+            index = 1
+        }
+        if (n < 1) {
+            index = x.length
+        }
+        for (i = 0; i < x.length; i++) {
+            x[i].classList.remove('active');
+
+        }
+        x[index - 1].classList.add('active');
+    }
+
+</script>
+</html>

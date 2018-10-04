@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Aurelienthms / Home</title>
+    <link rel="stylesheet" href="css/stylesHome.css">
+    <script src="Js/jquery.min.js"></script>
+    <script src="Js/Scrollmagic/TweenMax.min.js"></script>
+    <script src="Js/Scrollmagic/ScrollMagic.js"></script>
+    <script src="Js/Scrollmagic/animation.gsap.js"></script>
+    <script src="Js/Scrollmagic/debug.addIndicators.js"></script>
+    <script src="Js/Scrollmagic/main.js"></script>
+    <script src="Js/P5/p5.js"></script>
+    <script src="Js/P5/sketch.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png"/>
+</head>
+<body>
+<h1 id="name">Aurelien Thomas</h1>
+<div class="accent">
+    <a href="#menu">
+        <p>Menu</p>
+    </a>
+</div>
+<h2>Online Portfolio</h2>
+<main id="main">
+    <nav id="menu">
+        <div id="webd" onclick="link('Webdesign.html')">
+            <p>Etudiant MMI (specialisé Webdesign), j'ai acquis au cours de cette formation de nombreuses conaissances
+                en UI et UX design ainsi qu'en integration Html, CSS, JS et PHP. Vous trouverez dans cette rubrique
+                certain des projets web que j'ai réalisé.<br/><br/><br/><br/> Cliquez pour ouvrir la page !</p>
+            <div class="examples">
+                <h4 onmouseover="apercu('images/wrongwayHome')">WrongWay</h4>
+            </div>
+            <img src="images/wrongwayHome.jpg" alt="">
+            <h3>Webdesign</h3>
+        </div>
+        <div id="illu" onclick="link('Illustration.html')">
+            <h3>Illustration</h3>
+            <img src="css/images/thumbnails/disThumb.jpg" alt="">
+            <div class="examples">
+                <h4 onmouseover="apercu('css/images/thumbnails/disThumb')">Displacement shapes</h4>
+                <h4 onmouseover="apercu('css/images/thumbnails/silkThumb')">Silk</h4>
+            </div>
+            <p>L'illustration, notamment la realisation de posters, affiches et identitées visuelles est une de mes
+                grandes passions. J'aime mélanger differents styles et univers dans mes creations. Vous trouverez dans
+                cette rubrique une selection de mes realisations.<br/><br/><br/><br/>Cliquez pour ouvrir la page !</p>
+        </div>
+
+        <div id="photo" onclick="link(
+            'Photography.html')">
+            <p>Vous retrouverez dans cette rubrique une selection de clichés triés en projets. La photograpie et surtout
+                la retouche sur ordinateur sont des domaines que j'aprecie tout particulierement. <br/><br/><br/><br/>Cliquez
+                pour ouvrir la page !</p>
+            <div class="examples">
+                <h4 onmouseover="apercu('css/images/thumbnails/offfThumb')">OFFF 2k18</h4>
+                <h4 onmouseover="apercu('css/images/thumbnails/matanethumb')">Autumn in Matane</h4>
+                <h4 onmouseover="apercu('css/images/thumbnails/meThumb')">Me, Myself and I</h4>
+            </div>
+            <img src="css/images/thumbnails/offfThumb.jpg" alt="">
+            <h3>Photography</h3>
+        </div>
+        <div id="video" onclick="link('Video.html')">
+            <h3>Video / MontionDesign</h3>
+            <img src='css/images/thumbnails/offfVlogThumb.jpg' alt="">
+            <div class="examples">
+                <h4 onmouseover="apercu('css/images/thumbnails/offfVlogThumb')">Offf 2k18 Vlog</h4>
+                <h4 onmouseover="apercu('css/images/thumbnails/oddLookThumb')">Odd look</h4>
+                <h4 onmouseover="apercu('css/images/thumbnails/97thumb')">Air max 97</h4>
+            </div>
+            <p>Vous trouverez dans cette rubrique une selection des videos et animations que j'ai eu le plaisir de
+                realiser. Vous trouverez ici des courtes animations, des Vlog et meme des clips musicaux.<br/><br/><br/><br/>Cliquez
+                pour ouvrir la page !</p>
+        </div>
+    </nav>
+</main>
+</body>
+<script>
+    var larg = screen.width;
+    if (larg > 600) {
+        (function () {
+            "use strict";
+            var cat = document.querySelectorAll('#menu>div');
+            for (var i = 0; i < cat.length; i++) {
+                var sel = cat[i];
+                sel.addEventListener("mouseover" || "click", function () {
+                    var autres = document.querySelectorAll('.out');
+                    for (var j = 0; j < autres.length; j++) {
+                        var autre = autres[j];
+                        autre.classList.remove('out');
+                    }
+                    this.classList.add('out');
+                })
+            }
+        }());
+    }
+    function link(link) {
+        var win = window.open(link, '_blank');
+        win.focus();
+    }
+
+
+    function apercu(n) {
+        //var apercu = document.querySelectorAll('.examples>h4');
+        //for (var i = 0; i < apercu.length; i++) {
+
+        var img = document.querySelector('.out>img');
+        img.src = (n + '.jpg');
+        // console.log(img.src)
+        //}
+    }
+
+
+    // function findScreenCoords(mouseEvent) {
+    //   var xpos;
+    // var ypos;
+    // if (mouseEvent) {
+    //  xpos = mouseEvent.screenX;
+    //ypos = mouseEvent.screenY;
+    //}
+    //else {
+    //IE
+    // xpos = window.event.screenX;
+    //   ypos = window.event.screenY;
+    // }
+
+    //   document.querySelector('.accent').style.transform = "rotate3D(0,0.05,0," + xpos + "deg)";
+    // }
+    //   document.querySelector('body').onmousemove = findScreenCoords;
+</script>
+</html>

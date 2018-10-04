@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Aurelienthms / Photography</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="photo">
+<section class="active">
+    <div class="titleContainer">
+        <h2>OFFF 2K18</h2>
+    </div>
+
+    <div class="mobile">
+        <img src="images/offf1.png" alt="">
+        <img src="images/offfWide1.png" alt="">
+    </div>
+    <div class="photoContainer">
+        <img src="images/OfffWide2.png" alt="">
+        <p>J'ai pu prendre de nombreuses photos et realiser une video de mon voyage à Barcelone à l'occasion du OFFF
+            2018.</p>
+    </div>
+    <div class="more">
+        <p>Voir plus</p>
+        <img src="images/offf1.png" class="active" alt="" style="transform: scale(0.6);">
+        <img src="images/offfWide1.png" alt="">
+        <img src="images/OfffWide2.png" alt="">
+        <div id="left"></div>
+        <div id="right"></div>
+    </div>
+</section>
+<section class="active">
+    <div class="titleContainer">
+        <h2>Autumn in Matane</h2>
+    </div>
+
+    <div class="mobile">
+        <img src="images/matane1.png" alt="">
+        <img src="images/matane2.png" alt="">
+    </div>
+    <div class="photoContainer">
+        <img src="images/mataneWide2.png" alt="">
+        <p>La region de Matane, Quebec est très interessante pour sa faune et sa flore notamment. Ce projet m'as permis
+            de me familiariser avec l'utilisation d'un objectif à lingue focale. </p>
+    </div>
+    <div class="more">
+        <p>Voir plus</p>
+        <img src="images/mataneWide1.png" class="active" alt="">
+        <img src="images/mataneWide2.png" alt="">
+        <img src="images/matane1.png" alt="" style="transform: scale(0.6);">
+        <img src="images/matane2.png" alt="" style="transform: scale(0.6);">
+        <img src="images/matane1.png" alt="" style="transform: scale(0.6);">
+
+        <div id="left" onclick="plus(-1)"></div>
+        <div id="right" onclick="plus(+1)"></div>
+    </div>
+</section>
+<section class="active">
+    <div class="titleContainer">
+        <h2>Me, myself and I</h2>
+    </div>
+
+    <div class="mobile">
+        <img src="images/Me1.png" alt="">
+        <img src="images/me3.png" alt="">
+    </div>
+    <div class="photoContainer">
+        <img src="images/me2.png" alt="">
+        <p>Collection d'autoportraits. Chacun représente un style different tout en repressentant la meme personne.</p>
+    </div>
+    <div class="more">
+        <p>Voir plus</p>
+        <img src="images/me2.png" class="active" alt="">
+        <img src="images/Me1.png" alt="" style="transform: scale(0.6);">
+        <img src="images/me3.png" alt="" style="transform: scale(0.6);">
+        <div id="left" onclick="plus(-1)"></div>
+        <div id="right" onclick="plus(+1)"></div>
+    </div>
+</section>
+
+</body>
+<script>
+
+    (function () {
+        var b = document.querySelectorAll('body > section > div.more');
+        for (var i = 0; i < b.length; i++) {
+            var bs = b[i];
+            bs.addEventListener('click', function (event) {
+                if (event.target.id == 'left') {
+                    plus(-1);
+                    return;
+                }
+                if (event.target.id == 'right') {
+                    plus(+1);
+                    return;
+                }
+                ps = this.children[0];
+                if (ps.innerHTML === 'Voir plus') {
+                    var others = document.querySelectorAll('.more');
+                    for (var f = 0; f < others.length; f++) {
+                        others[f].classList.remove('out');
+                    }
+                    this.classList.add('out');
+                    ps.innerHTML = 'moins';
+                } else {
+                    if (ps.innerHTML === 'moins') {
+                        ps.parentNode.classList.remove('out');
+                        ps.innerHTML = 'Voir plus';
+                    }
+                }
+
+            })
+        }
+    }());
+
+
+    var index = 1;
+    slide(index);
+
+    function plus(n) {
+        slide(index += n);
+    }
+
+    function slide(n) {
+        var i;
+        var x = document.querySelectorAll(".out>img");
+        if (n > x.length) {
+            index = 1
+        }
+        if (n < 1) {
+            index = x.length
+        }
+        for (i = 0; i < x.length; i++) {
+            x[i].classList.remove('active');
+
+        }
+        x[index - 1].classList.add('active');
+    }
+
+</script>
+</html>

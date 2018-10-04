@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Aurelienthms / Video</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body class="video">
+<section class="active">
+    <iframe width="63%" height="72%" src="https://www.youtube.com/embed/K1ZGMQsOXaI?rel=0&amp;controls=0&amp;showinfo=0"
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div class="mobile">
+        <img src="images/vlogofff1.jpg" alt="">
+        <img src="images/vlogofff2.jpg" alt="">
+        <img src="images/vlofofff3.jpg" alt="">
+    </div>
+    <div class="titleContainer">
+        <h2>Vlog OFFF 2k18</h2>
+    </div>
+    <p>Projet video de type "Vlog" retracant mon sejour à Barcelone à l'occasion du festifal OFFF 2018.</p>
+    <div class="more">
+        <p>Voir plus</p>
+        <div id="left" onclick="plus(-1)"></div>
+        <div id="right" onclick="plus(+1)"></div>
+    </div>
+</section>
+<section class="active">
+    <iframe width="63%" height="72%" src="https://www.youtube.com/embed/r4Eigcdsdb8?rel=0&amp;controls=0&amp;showinfo=0"
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div class="mobile">
+        <img src="images/oddLookWide1.png" class="active" alt="">
+        <img src="images/oddlook2.jpg" alt="">
+        <img src="images/oddlook3.jpg" alt="">
+    </div>
+    <div class="titleContainer">
+        <h2>Odd Look</h2>
+    </div>
+    <p>Le but de ce projet etait de creer une clip alternatif pour la musique "Odd Look" de Kavinsky.
+    J'ai realisé cette video sur After Effect de A à Z.</p>
+    <div class="more">
+        <p>Voir plus</p>
+        <img src="vid.png" class="active" alt="">
+        <img src="vid.png" alt="">
+        <img src="vid.png" alt="">
+        <div id="left" onclick="plus(-1)"></div>
+        <div id="right" onclick="plus(+1)"></div>
+    </div>
+</section>
+</body>
+
+<script>
+    var lastScrollTop = 0;
+    window.addEventListener("scroll", function () {
+        var st = window.pageYOffset || document.documentElement.scrollTop;
+        if (st > lastScrollTop) {
+            console.log(pageYOffset);
+            console.log("down")
+        } else {
+            console.log("up")
+        }
+        lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+    }, false);
+
+
+    (function () {
+        var b = document.querySelector('body > section.active > div.more>p');
+        b.addEventListener('click', function () {
+            var button = document.querySelector('body > section.active > div.more');
+            button.classList.toggle('out');
+        })
+    }());
+
+    var index = 1;
+    slide(index);
+
+    function plus(n) {
+        slide(index += n);
+    }
+
+    function slide(n) {
+        var i;
+        var x = document.querySelectorAll(".out>img");
+        if (n > x.length) {
+            index = 1
+        }
+        if (n < 1) {
+            index = x.length
+        }
+        for (i = 0; i < x.length; i++) {
+            x[i].classList.remove('active');
+
+        }
+        x[index - 1].classList.add('active');
+    }
+
+
+</script>
+</html>

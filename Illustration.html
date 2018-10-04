@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Aurelienthms / Illustration</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="illu">
+<section class="active">
+    <div class="titleContainer">
+        <h2>Displacement shapes</h2>
+    </div>
+    <p>
+        Janvier 2018<br/><br/>Ce projet experimental avait pour but de tester les possibilitées
+        offertes par les materiaux sur Cinema 4D. C'est ce projet qui m'as initié aux logiciels de creation 3D.</p>
+    <div class="mobile">
+        <img src="images/displacement1.jpg" alt="">
+        <img src="images/displacement3.jpg" alt="">
+    </div>
+    <img src="images/displacement2.jpg" alt="">
+
+    <div class="more">
+        <p>Voir plus</p>
+        <img src="images/displacementWide1.jpg" class="active" alt="">
+        <img src="images/displacementWide2.jpg" alt="">
+        <img src="images/displacementWide3.jpg" alt="">
+        <div id="left"></div>
+        <div id="right"></div>
+    </div>
+</section>
+<section class="active">
+    <div class="titleContainer">
+        <h2>Silk</h2>
+    </div>
+    <p>Septembre 2018<br/><br/>Ce projet est basé sur le principe de creer 3 posters / creations graphiques avec
+        une meme image. La photo que j'ai utilisé est une pose longue sur une cascade que j'avais photographié l'année
+        passeé. J'ai aussi voulu explorer le concept de melanger des polices avec et sans serif pour creer un contraste
+        important. Principe que j'ai finalement appliqué durant la creation de ce site.</p>
+    <div class="mobile">
+        <img src="images/silk2.jpg" alt="">
+        <img src="images/silk3.jpg" alt="">
+    </div>
+    <img src="images/silk1.jpg" alt="">
+
+    <div class="more">
+        <p>Voir plus</p>
+        <img src="images/silkWide1.png" class="active" alt="">
+        <img src="images/silkWide2.jpg" alt="">
+        <img src="images/silkWide3.png" alt="">
+        <div id="left"></div>
+        <div id="right"></div>
+    </div>
+</section>
+</body>
+<script>
+
+    (function () {
+        var b = document.querySelectorAll('body > section > div.more');
+        for (var i = 0; i < b.length; i++) {
+            var bs = b[i];
+            bs.addEventListener('click', function (event) {
+                if (event.target.id == 'left') {
+                    plus(-1);
+                    return;
+                }
+                if (event.target.id == 'right') {
+                    plus(+1);
+                    return;
+                }
+                ps = this.children[0];
+                if (ps.innerHTML === 'Voir plus') {
+                    var others = document.querySelectorAll('.more');
+                    for (var f = 0; f < others.length; f++) {
+                        others[f].classList.remove('out');
+                    }
+                    this.classList.add('out');
+                    ps.innerHTML = 'moins';
+                } else {
+                    if (ps.innerHTML === 'moins') {
+                        ps.parentNode.classList.remove('out');
+                        ps.innerHTML = 'Voir plus';
+                    }
+                }
+
+            })
+        }
+    }());
+
+    var index = 1;
+    slide(index);
+
+    function plus(n) {
+        slide(index += n);
+    }
+
+    function slide(n) {
+        var i;
+        var x = document.querySelectorAll(".out>img");
+        if (n > x.length) {
+            index = 1
+        }
+        if (n < 1) {
+            index = x.length
+        }
+        for (i = 0; i < x.length; i++) {
+            x[i].classList.remove('active');
+
+        }
+        x[index - 1].classList.add('active');
+    }
+
+</script>
+</html>
